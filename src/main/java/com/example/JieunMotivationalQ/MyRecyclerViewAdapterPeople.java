@@ -15,11 +15,11 @@ import java.util.List;
 
 public class MyRecyclerViewAdapterPeople extends RecyclerView.Adapter<MyRecyclerViewAdapterPeople.ViewHolder> {
 
-    private List<String> mDataNames;
-    private List<String> mDataPictures;
-    private LayoutInflater mInflater;
+    private final List<String> mDataNames;
+    private final List<String> mDataPictures;
+    private final LayoutInflater mInflater;
     private ItemClickListener mClickListener;
-    private Context context;
+    private final Context context;
 
     // data is passed into the constructor
     MyRecyclerViewAdapterPeople(Context context, List<String> dataNames, List<String> dataPictures) {
@@ -74,6 +74,7 @@ public class MyRecyclerViewAdapterPeople extends RecyclerView.Adapter<MyRecycler
         @Override
         public void onClick(View view) {
             if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
+
         }
     }
 

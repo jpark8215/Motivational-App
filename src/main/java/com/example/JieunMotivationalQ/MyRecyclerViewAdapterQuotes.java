@@ -2,6 +2,7 @@ package com.example.JieunMotivationalQ;
 
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,14 +10,36 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 import java.util.List;
 
 public class MyRecyclerViewAdapterQuotes extends RecyclerView.Adapter<MyRecyclerViewAdapterQuotes.ViewHolder> {
     private int selectedQuoteIndex = -1; // Initialize with an invalid index
 
-    private List<String> mData;
-    private LayoutInflater mInflater;
+    private final List<String> mData;
+    private final LayoutInflater mInflater;
     private ItemClickListener mClickListener;
+
+//    Todo continue adding admob
+    private AdView mAdView;
+    protected void onCreate(Bundle savedInstanceState) {
+
+        MobileAds.initialize(mAdView.getContext(), new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
+        mAdView = mAdView.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+    }
+//    End of ad
 
     // data is passed into the constructor
     MyRecyclerViewAdapterQuotes(Context context, List<String> data) {
@@ -28,7 +51,6 @@ public class MyRecyclerViewAdapterQuotes extends RecyclerView.Adapter<MyRecycler
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.cardview_quotes, parent, false);
-
         return new ViewHolder(view);
     }
 

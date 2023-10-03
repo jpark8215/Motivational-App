@@ -15,7 +15,7 @@ import java.util.Random;
 public class ShowQuotes extends AppCompatActivity {
 
     private MyRecyclerViewAdapterQuotes adapter;
-    private ArrayList<String> quotesList = new ArrayList<>(); // Initialize the list here
+    private final ArrayList<String> quotesList = new ArrayList<>(); // Initialize the list here
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -4,6 +4,8 @@ package com.example.JieunMotivationalQ;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -54,6 +56,22 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         adapter = new MyRecyclerViewAdapterPeople(this, peopleNames, peoplePictures);
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
+
+
+        // Creates a button that mimics a crash when pressed
+        Button crashButton = new Button(this);
+        crashButton.setText("Test Crash");
+        crashButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                throw new RuntimeException("Test Crash"); // Force a crash
+            }
+        });
+
+        addContentView(crashButton, new ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT));
+
+
     }
 
 
