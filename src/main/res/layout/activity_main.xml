@@ -30,8 +30,9 @@
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/image_1"
-                app:layout_collapseMode="parallax" />
+                android:src="@drawable/main_image"
+                app:layout_collapseMode="parallax"
+                android:contentDescription="Picture of benches in garden"/>
 
             <View
                 android:layout_width="match_parent"
@@ -67,7 +68,7 @@
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nested_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="600dp"
         android:layout_marginTop="-35dp"
         android:clipToPadding="false"
         android:scrollbars="none"
@@ -87,6 +88,7 @@
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
+
 
         </LinearLayout>
 

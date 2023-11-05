@@ -1,5 +1,6 @@
 package com.example.JieunMotivationalQ;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -14,9 +15,9 @@ import java.util.Random;
 
 public class ShowQuotes extends AppCompatActivity {
 
-    private MyRecyclerViewAdapterQuotes adapter;
     private final ArrayList<String> quotesList = new ArrayList<>(); // Initialize the list here
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // Grabs the value of the person clicked
@@ -37,7 +38,7 @@ public class ShowQuotes extends AppCompatActivity {
         // Set up the RecyclerView
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new MyRecyclerViewAdapterQuotes(this, quotesList);
+        MyRecyclerViewAdapterQuotes adapter = new MyRecyclerViewAdapterQuotes(this, quotesList);
         recyclerView.setAdapter(adapter);
 
         // Generate a random index and set it for the adapter

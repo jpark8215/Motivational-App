@@ -26,7 +26,7 @@
             <View
                 android:id="@+id/spacer"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/spacing_large"
+                android:layout_height="0dp"
                 android:layout_weight="1" />
 
             <LinearLayout
@@ -56,7 +56,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:minHeight="@dimen/spacing_xmlarge"
-                    android:text="Person 1"
+                    android:text="Person"
                     android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                     android:textColor="@color/grey_40"
                     android:textStyle="bold" />
