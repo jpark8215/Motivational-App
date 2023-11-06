@@ -49,6 +49,7 @@ public class ShowQuotes extends AppCompatActivity {
 
     }
 
+
     private void showQuotes(String person) {
         quotesList.clear(); // Clear the list before adding new quotes
 

@@ -26,7 +26,6 @@ public class MyRecyclerViewAdapterQuotes extends RecyclerView.Adapter<RecyclerVi
     MyRecyclerViewAdapterQuotes(Context context, List<String> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
-//        AdRequest adRequest = new AdRequest.Builder().build();
     }
 
     @Override
@@ -42,18 +41,18 @@ public class MyRecyclerViewAdapterQuotes extends RecyclerView.Adapter<RecyclerVi
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view;
         if (viewType == VIEW_TYPE_AD) {
-            View view = mInflater.inflate(R.layout.ad_view_item, parent, false);
+            view = mInflater.inflate(R.layout.ad_view_item, parent, false);
             return new AdViewHolder(view);
         } else {
-            View view = mInflater.inflate(R.layout.cardview_quotes, parent, false);
+            view = mInflater.inflate(R.layout.cardview_quotes, parent, false);
             return new QuoteViewHolder(view);
         }
     }
 
     // Binds the data to the ViewHolder
     @Override
-
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof QuoteViewHolder) {
             QuoteViewHolder quoteViewHolder = (QuoteViewHolder) holder;
@@ -97,14 +96,15 @@ public class MyRecyclerViewAdapterQuotes extends RecyclerView.Adapter<RecyclerVi
         AdViewHolder(View itemView) {
             super(itemView);
             mAdView = itemView.findViewById(R.id.adView);
-            mAdView.setAdUnitId("ca-app-pub-2201141547916408~6771372659");
-//            mAdView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
+
+            // Set the ad unit ID and load the ad here
+//            mAdView.setAdUnitId("ca-app-pub-2201141547916408~6771372659");
+            mAdView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
 
             AdRequest adRequest = new AdRequest.Builder().build();
             mAdView.loadAd(adRequest);
         }
     }
-
 
     // Setter method to set the selected quote index
     @SuppressLint("NotifyDataSetChanged")
@@ -121,4 +121,3 @@ public class MyRecyclerViewAdapterQuotes extends RecyclerView.Adapter<RecyclerVi
         notifyDataSetChanged();
     }
 }
-
