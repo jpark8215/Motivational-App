@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "829004248902",
+    "project_id": "jieunmotivationalq",
+    "storage_bucket": "jieunmotivationalq.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:829004248902:android:65b6ffd462a25951341747",
+        "android_client_info": {
+          "package_name": "com.example.JieunMotivationalQ"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDh50Kb-6x1ffYxlKALNWa45Z6CJpgKJ4Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

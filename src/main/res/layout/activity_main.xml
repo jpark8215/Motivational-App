@@ -28,7 +28,7 @@
                 android:id="@+id/image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:contentDescription="Picture of benches in garden"
+                android:contentDescription="@string/picture_of_benches_in_garden"
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
                 android:src="@drawable/main_image"
@@ -55,7 +55,7 @@
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nested_content"
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="465dp"
         android:layout_marginTop="-35dp"
         android:clipToPadding="false"
         android:scrollbars="none"
@@ -82,3 +82,5 @@
     </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+

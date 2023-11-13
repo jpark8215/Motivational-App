@@ -9,8 +9,10 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+
 import java.util.List;
 
 public class MyRecyclerViewAdapterQuotes extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -41,12 +43,11 @@ public class MyRecyclerViewAdapterQuotes extends RecyclerView.Adapter<RecyclerVi
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view;
         if (viewType == VIEW_TYPE_AD) {
-            view = mInflater.inflate(R.layout.ad_view_item, parent, false);
+            View view = mInflater.inflate(R.layout.cardview_quotes, parent, false);
             return new AdViewHolder(view);
         } else {
-            view = mInflater.inflate(R.layout.cardview_quotes, parent, false);
+            View view = mInflater.inflate(R.layout.cardview_quotes, parent, false);
             return new QuoteViewHolder(view);
         }
     }
@@ -60,11 +61,11 @@ public class MyRecyclerViewAdapterQuotes extends RecyclerView.Adapter<RecyclerVi
 
             // Check if the current position is the selected quote index
             if (position == 0 && selectedQuoteIndex >= 0 && selectedQuoteIndex < mData.size()) {
-                quoteViewHolder.myTextView.setText(mData.get(selectedQuoteIndex));
-                quoteViewHolder.myTextView.setVisibility(View.VISIBLE);
+                quoteViewHolder.personNameTextView.setText(mData.get(selectedQuoteIndex));
+                quoteViewHolder.personNameTextView.setVisibility(View.VISIBLE);
             } else {
-                quoteViewHolder.myTextView.setText(quote);
-                quoteViewHolder.myTextView.setVisibility(
+                quoteViewHolder.personNameTextView.setText(quote);
+                quoteViewHolder.personNameTextView.setVisibility(
                         (selectedQuoteIndex >= 0 && selectedQuoteIndex < mData.size() && position != 0)
                                 ? View.GONE
                                 : View.VISIBLE
@@ -81,28 +82,29 @@ public class MyRecyclerViewAdapterQuotes extends RecyclerView.Adapter<RecyclerVi
 
     // ViewHolder for quotes
     private static class QuoteViewHolder extends RecyclerView.ViewHolder {
-        TextView myTextView;
+        TextView personNameTextView;
 
         QuoteViewHolder(View itemView) {
             super(itemView);
-            myTextView = itemView.findViewById(R.id.personName);
+            personNameTextView = itemView.findViewById(R.id.personName);
         }
     }
 
     // ViewHolder for AdView
     private static class AdViewHolder extends RecyclerView.ViewHolder {
-        AdView mAdView;
+        AdView adView;
 
         AdViewHolder(View itemView) {
             super(itemView);
-            mAdView = itemView.findViewById(R.id.adView);
+            adView = itemView.findViewById(R.id.adView);
 
             // Set the ad unit ID and load the ad here
-//            mAdView.setAdUnitId("ca-app-pub-2201141547916408~6771372659");
-            mAdView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
+            adView.setAdUnitId("ca-app-pub-3940256099942544~3347511713");
+//            adView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
+
 
             AdRequest adRequest = new AdRequest.Builder().build();
-            mAdView.loadAd(adRequest);
+            adView.loadAd(adRequest);
         }
     }
 
@@ -121,3 +123,4 @@ public class MyRecyclerViewAdapterQuotes extends RecyclerView.Adapter<RecyclerVi
         notifyDataSetChanged();
     }
 }
+
