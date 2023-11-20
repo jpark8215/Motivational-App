@@ -61,8 +61,8 @@ public class MyRecyclerViewAdapterPeople extends RecyclerView.Adapter<MyRecycler
 
     // Stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView myTextView;
-        CircularImageView myCircularImageView;
+        final TextView myTextView;
+        final CircularImageView myCircularImageView;
 
         ViewHolder(View itemView) {
             super(itemView);

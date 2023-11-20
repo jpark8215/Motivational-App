@@ -82,7 +82,7 @@ public class MyRecyclerViewAdapterQuotes extends RecyclerView.Adapter<RecyclerVi
 
     // ViewHolder for quotes
     private static class QuoteViewHolder extends RecyclerView.ViewHolder {
-        TextView personNameTextView;
+        final TextView personNameTextView;
 
         QuoteViewHolder(View itemView) {
             super(itemView);
@@ -92,15 +92,15 @@ public class MyRecyclerViewAdapterQuotes extends RecyclerView.Adapter<RecyclerVi
 
     // ViewHolder for AdView
     private static class AdViewHolder extends RecyclerView.ViewHolder {
-        AdView adView;
+        final AdView adView;
 
         AdViewHolder(View itemView) {
             super(itemView);
             adView = itemView.findViewById(R.id.adView);
 
             // Set the ad unit ID and load the ad here
-            adView.setAdUnitId("ca-app-pub-3940256099942544~3347511713");
-//            adView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
+//            adView.setAdUnitId("ca-app-pub-3940256099942544~3347511713");
+            adView.setAdUnitId("ca-app-pub-2201141547916408~1568858261");
 
 
             AdRequest adRequest = new AdRequest.Builder().build();
