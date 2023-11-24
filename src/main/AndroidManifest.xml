@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.JieunMotivationalQ">
+    package="com.developerjp.JieunMotivationalQ">
 
     <application
         android:allowBackup="true"
@@ -19,11 +19,11 @@
             android:value="ca-app-pub-2201141547916408~1568858261"/>
 
         <activity
-            android:name=".ShowQuotes">
+            android:name="com.developerjp.JieunMotivationalQ.ShowQuotes">
         </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.developerjp.JieunMotivationalQ.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,4 +32,6 @@
         </activity>
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET"
+        tools:ignore="ManifestOrder" />
 </manifest>
