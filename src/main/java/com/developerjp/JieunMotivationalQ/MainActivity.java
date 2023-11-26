@@ -3,6 +3,7 @@ package com.developerjp.JieunMotivationalQ;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -63,11 +64,11 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
 
-        // Initialize AdMob
-        MobileAds.initialize(this, initializationStatus -> {
-            // AdMob initialization is complete.
-        });
 
+        MobileAds.initialize(this, initializationStatus -> {
+            Log.d("Ads", "Initialization status: " + initializationStatus.toString());
+
+        });
 
     }
 

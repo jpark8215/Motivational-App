@@ -16,8 +16,6 @@ import com.google.android.gms.ads.AdView;
 import java.util.List;
 
 public class MyRecyclerViewAdapterQuotes extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private int selectedQuoteIndex = -1; // Initialize with an invalid index
-
     private final List<String> mData;
     private final LayoutInflater mInflater;
 
@@ -32,62 +30,47 @@ public class MyRecyclerViewAdapterQuotes extends RecyclerView.Adapter<RecyclerVi
 
     @Override
     public int getItemViewType(int position) {
-        if (position == 0 && selectedQuoteIndex >= 0 && selectedQuoteIndex < mData.size()) {
-            return VIEW_TYPE_AD;
-        } else {
-            return VIEW_TYPE_QUOTE;
-        }
+        // Set view type based on position
+        return (position % 2 == 0) ?  VIEW_TYPE_QUOTE: VIEW_TYPE_AD;
     }
 
-    // Inflates the row layout from XML when needed
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        if (viewType == VIEW_TYPE_AD) {
-            View view = mInflater.inflate(R.layout.cardview_quotes, parent, false);
-            return new AdViewHolder(view);
-        } else {
-            View view = mInflater.inflate(R.layout.cardview_quotes, parent, false);
-            return new QuoteViewHolder(view);
+        View view;
+        switch (viewType) {
+            case VIEW_TYPE_AD:
+                view = mInflater.inflate(R.layout.adview_layout, parent, false);
+                return new AdViewHolder(view);
+            case VIEW_TYPE_QUOTE:
+                view = mInflater.inflate(R.layout.cardview_quotes, parent, false);
+                return new QuoteViewHolder(view);
         }
+        return null;
     }
 
-    // Binds the data to the ViewHolder
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        if (holder instanceof QuoteViewHolder) {
-            QuoteViewHolder quoteViewHolder = (QuoteViewHolder) holder;
-            String quote = mData.get(position);
-
-            // Check if the current position is the selected quote index
-            if (position == 0 && selectedQuoteIndex >= 0 && selectedQuoteIndex < mData.size()) {
-                quoteViewHolder.personNameTextView.setText(mData.get(selectedQuoteIndex));
-                quoteViewHolder.personNameTextView.setVisibility(View.VISIBLE);
-            } else {
+        switch (holder.getItemViewType()) {
+            case VIEW_TYPE_AD:
+                AdViewHolder adViewHolder = (AdViewHolder) holder;
+                adViewHolder.adView.setVisibility(View.VISIBLE);
+                break;
+            case VIEW_TYPE_QUOTE:
+                QuoteViewHolder quoteViewHolder = (QuoteViewHolder) holder;
+                String quote = mData.get(position / 2); // Adjust position for interleaving ad and quote views
                 quoteViewHolder.personNameTextView.setText(quote);
-                quoteViewHolder.personNameTextView.setVisibility(
-                        (selectedQuoteIndex >= 0 && selectedQuoteIndex < mData.size() && position != 0)
-                                ? View.GONE
-                                : View.VISIBLE
-                );
-            }
-        } else if (holder instanceof AdViewHolder) {
-            AdViewHolder adViewHolder = (AdViewHolder) holder;
-
-            // Set the visibility of the ad based on the selected quote index
-            adViewHolder.adView.setVisibility(
-                    (selectedQuoteIndex >= 0 && selectedQuoteIndex < mData.size() && position == 0)
-                            ? View.VISIBLE
-                            : View.GONE
-            );
+                quoteViewHolder.personNameTextView.setVisibility(View.VISIBLE);
+                // Handle quote-specific binding
+                break;
         }
     }
 
-
-    // Total number of rows
     @Override
     public int getItemCount() {
-        return mData.size();
+        // Return the count of both ad and quote views
+//        return mData.size() * 2;
+        return 2;
     }
 
     // ViewHolder for quotes
@@ -101,38 +84,21 @@ public class MyRecyclerViewAdapterQuotes extends RecyclerView.Adapter<RecyclerVi
     }
 
     // ViewHolder for AdView
-    private static class AdViewHolder extends RecyclerView.ViewHolder {
+    public static class AdViewHolder extends RecyclerView.ViewHolder {
         final AdView adView;
 
         AdViewHolder(View itemView) {
             super(itemView);
             adView = itemView.findViewById(R.id.adView);
-
             AdRequest adRequest = new AdRequest.Builder().build();
             adView.loadAd(adRequest);
-
-            // Set the ad unit ID and load the ad here
-//            adView.setAdUnitId("ca-app-pub-2201141547916408~1568858261");
-            adView.setAdUnitId("ca-app-pub-3940256099942544/6300978111"); // Test ad unit ID
-
-
-
         }
     }
 
     // Setter method to set the selected quote index
     @SuppressLint("NotifyDataSetChanged")
     public void setSelectedQuoteIndex(int index) {
-        selectedQuoteIndex = index;
-
-        // If a quote is selected, keep only that quote in the data list
-        if (index >= 0 && index < mData.size()) {
-            String selectedQuote = mData.get(index);
-            mData.clear();
-            mData.add(selectedQuote);
-        }
-
+        // No need to clear mData if you want to show both ad and quote views
         notifyDataSetChanged();
     }
 }
-
