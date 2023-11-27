@@ -13,7 +13,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/spacing_large"
         android:layout_marginRight="@dimen/spacing_large"
-        android:layout_alignParentTop="true"
         android:background="@android:color/white"
         app:cardCornerRadius="2dp"
         app:cardElevation="2dp">
@@ -37,16 +36,14 @@
                 android:text="@string/person_name"
                 android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                 android:textColor="@color/overlay_dark_50"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:padding="@dimen/spacing_large"
+                android:background="@drawable/textview_border" />
 
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
     <!-- Include AdView layout below CardView -->
-    <include layout="@layout/adview_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/cardView"/>
 
 </RelativeLayout>

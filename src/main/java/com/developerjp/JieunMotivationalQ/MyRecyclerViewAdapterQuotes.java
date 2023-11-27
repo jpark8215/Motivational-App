@@ -14,13 +14,16 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 import java.util.List;
+import java.util.Random;
 
 public class MyRecyclerViewAdapterQuotes extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final List<String> mData;
     private final LayoutInflater mInflater;
+    private int selectedQuoteIndex = -1;
 
-    private static final int VIEW_TYPE_QUOTE = 0;
-    private static final int VIEW_TYPE_AD = 1;
+    private static final int VIEW_TYPE_QUOTE = 1;
+    private static final int VIEW_TYPE_AD = 0;
+    private static final int QUOTES_PER_AD = 7;
 
     // Data is passed into the constructor
     MyRecyclerViewAdapterQuotes(Context context, List<String> data) {
@@ -31,7 +34,7 @@ public class MyRecyclerViewAdapterQuotes extends RecyclerView.Adapter<RecyclerVi
     @Override
     public int getItemViewType(int position) {
         // Set view type based on position
-        return (position % 2 == 0) ?  VIEW_TYPE_QUOTE: VIEW_TYPE_AD;
+        return (position > 0 && position % (QUOTES_PER_AD + 1) == 0) ? VIEW_TYPE_AD : VIEW_TYPE_QUOTE;
     }
 
     @NonNull
@@ -54,11 +57,14 @@ public class MyRecyclerViewAdapterQuotes extends RecyclerView.Adapter<RecyclerVi
         switch (holder.getItemViewType()) {
             case VIEW_TYPE_AD:
                 AdViewHolder adViewHolder = (AdViewHolder) holder;
-                adViewHolder.adView.setVisibility(View.VISIBLE);
+                // Hide the first ad
+                adViewHolder.adView.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
                 break;
             case VIEW_TYPE_QUOTE:
                 QuoteViewHolder quoteViewHolder = (QuoteViewHolder) holder;
-                String quote = mData.get(position / 2); // Adjust position for interleaving ad and quote views
+                // Calculate the position of the quote in the original data list
+                int quotePosition = position - position / (QUOTES_PER_AD + 1);
+                String quote = mData.get(quotePosition);
                 quoteViewHolder.personNameTextView.setText(quote);
                 quoteViewHolder.personNameTextView.setVisibility(View.VISIBLE);
                 // Handle quote-specific binding
@@ -69,8 +75,7 @@ public class MyRecyclerViewAdapterQuotes extends RecyclerView.Adapter<RecyclerVi
     @Override
     public int getItemCount() {
         // Return the count of both ad and quote views
-//        return mData.size() * 2;
-        return 2;
+        return mData.size() + (mData.size() / QUOTES_PER_AD);
     }
 
     // ViewHolder for quotes
@@ -92,6 +97,22 @@ public class MyRecyclerViewAdapterQuotes extends RecyclerView.Adapter<RecyclerVi
             adView = itemView.findViewById(R.id.adView);
             AdRequest adRequest = new AdRequest.Builder().build();
             adView.loadAd(adRequest);
+        }
+    }
+
+    // Method to get a random quote index
+    private int getRandomQuoteIndex() {
+        if (mData.size() > 0) {
+            Random random = new Random();
+            // Exclude the currently selected quote index to avoid repetition
+            int newIndex = selectedQuoteIndex;
+            while (newIndex == selectedQuoteIndex) {
+                newIndex = random.nextInt(mData.size());
+            }
+            selectedQuoteIndex = newIndex;
+            return newIndex;
+        } else {
+            return -1;
         }
     }
 
