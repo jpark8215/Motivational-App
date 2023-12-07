@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
 
 
         MobileAds.initialize(this, initializationStatus -> {
-            Log.d("Ads", "Initialization status: " + initializationStatus.toString());
+            Log.d("Ads", "Initialization status: " + initializationStatus);
 
         });
 

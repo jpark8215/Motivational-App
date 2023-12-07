@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -23,7 +24,7 @@ public class MyRecyclerViewAdapterQuotes extends RecyclerView.Adapter<RecyclerVi
 
     private static final int VIEW_TYPE_QUOTE = 1;
     private static final int VIEW_TYPE_AD = 0;
-    private static final int QUOTES_PER_AD = 7;
+    private static final int QUOTES_PER_AD = 10;
 
     // Data is passed into the constructor
     MyRecyclerViewAdapterQuotes(Context context, List<String> data) {
@@ -116,10 +117,16 @@ public class MyRecyclerViewAdapterQuotes extends RecyclerView.Adapter<RecyclerVi
         }
     }
 
+    // Method to shuffle the list of quotes randomly
+    private void shuffleQuotes() {
+        Collections.shuffle(mData);
+        notifyDataSetChanged();
+    }
+
     // Setter method to set the selected quote index
     @SuppressLint("NotifyDataSetChanged")
     public void setSelectedQuoteIndex(int index) {
         // No need to clear mData if you want to show both ad and quote views
-        notifyDataSetChanged();
+        shuffleQuotes();
     }
 }

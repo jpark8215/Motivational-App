@@ -62,7 +62,7 @@ public class ShowQuotes extends AppCompatActivity {
                 quotesList.add("The most effective way to do it is to do it. - Amelia Earhart");
                 quotesList.add("I want every girl to know that her voice can change the world. - Malala Yousafzai");
                 quotesList.add("We realize the importance of our voices only when we are silenced. - Malala Yousafzai");
-                quotesList.add("The best protection any woman can have … is courage. - Elizabeth Cady Stanton");
+                quotesList.add("The best protection any woman can have is courage. - Elizabeth Cady Stanton");
                 quotesList.add("Step out of the history that is holding you back. Step into the new story you are willing to create. - Oprah Winfrey");
                 quotesList.add("I’m tough, ambitious, and I know exactly what I want. If that makes me a bitch, okay. - Madonna");
                 quotesList.add("The most difficult thing is the decision to act, the rest is merely tenacity. - Amelia Earhart");
@@ -76,6 +76,26 @@ public class ShowQuotes extends AppCompatActivity {
                 quotesList.add("The best way to predict the future is to create it. - Dr. Mae Jemison");
                 quotesList.add("You are the one that possesses the keys to your being. You carry the passport to your own happiness. - Diane von Fürstenberg");
                 quotesList.add("I am my best work - a series of road maps, reports, recipes, doodles, and prayers from the front lines. - Audre Lorde");
+                quotesList.add("The question isn't who's going to let me, it's who's going to stop me. - Ayn Rand");
+                quotesList.add("You are your best thing. - Toni Morrison");
+                quotesList.add("Don't wait around for other people to be happy for you. Any happiness you get you've got to make yourself. - Alice Walker");
+                quotesList.add("I don't know what the future holds, but I do know that I'm going to be positive and not wake up feeling desperate. - Billie Eilish");
+                quotesList.add("You may not control all the events that happen to you, but you can decide not to be reduced by them. - Maya Angelou");
+                quotesList.add("I never dreamed about success. I worked for it. - Estée Lauder");
+                quotesList.add("The most common way people give up their power is by thinking they don't have any. - Alice Walker");
+                quotesList.add("No one can make you feel inferior without your consent. - Eleanor Roosevelt");
+                quotesList.add("If you're not making mistakes, then you're not making decisions. - Catherine Cook");
+                quotesList.add("Do not wait for leaders; do it alone, person to person. - Mother Teresa");
+                quotesList.add("The most effective way to do it is to do it. - Amelia Earhart");
+                quotesList.add("I am not a product of my circumstances. I am a product of my decisions.");
+                quotesList.add("You may be the only person left who believes in you, but it's enough. It takes just one star to pierce a universe of darkness. Never give up.");
+                quotesList.add("I raise up my voice—not so I can shout, but so that those without a voice can be heard...we cannot succeed when half of us are held back. - Malala Yousafzai");
+                quotesList.add("I work really hard to just focus on the joy of the work that gets to be done and the impact of that rather than the ego of it. - Ava DuVernay");
+                quotesList.add("The difference between a broken community and a thriving one is the presence of women who are valued. - Michelle Obama");
+                quotesList.add("The only way to do great work is to love what you do.");
+                quotesList.add("I am my best work - a series of road maps, reports, recipes, doodles, and prayers from the front lines. - Audre Lorde");
+                quotesList.add("Success is liking yourself, liking what you do, and liking how you do it. - Maya Angelou");
+
                 break;
 
             case "Confucius":
@@ -92,6 +112,16 @@ public class ShowQuotes extends AppCompatActivity {
                 quotesList.add("To be wronged is nothing, unless you continue to remember it.");
                 quotesList.add("When anger rises, think of the consequences.");
                 quotesList.add("Respect yourself and others will respect you.");
+                quotesList.add("It does not matter how slowly you go as long as you do not stop.");
+                quotesList.add("Our greatest glory is not in never falling, but in rising every time we fall.");
+                quotesList.add("Ignorance is the night of the mind, but a night without moon and star.");
+                quotesList.add("Real knowledge is to know the extent of one's ignorance.");
+                quotesList.add("He who learns but does not think, is lost! He who thinks but does not learn is in great danger.");
+                quotesList.add("To see what is right and not do it is want of courage.");
+                quotesList.add("It is not the employer who pays the wages. Employers only handle the money. It is the customer who pays the wages.");
+                quotesList.add("When we see men of a contrary character, we should turn inwards and examine ourselves.");
+                quotesList.add("The superior man is modest in his speech but exceeds in his actions.");
+                quotesList.add("Wheresoever you go, go with all your heart.");
                 quotesList.add("The man who asks a question is a fool for a minute, the man who does not ask is a fool for life.");
                 quotesList.add("It is not the failure of others to appreciate your abilities that should trouble you, but rather your failure to appreciate theirs.");
                 quotesList.add("The superior man understands what is right; the inferior man understands what will sell.");
@@ -137,6 +167,16 @@ public class ShowQuotes extends AppCompatActivity {
                 quotesList.add("If you want to live a happy life, tie it to a goal, not to people or things.");
                 quotesList.add("Logic will get you from A to Z. Imagination will get you everywhere.");
                 quotesList.add("Common sense is what tells us the earth is flat.");
+                quotesList.add("Believe you can and you're halfway there."); // Theodore Roosevelt
+                quotesList.add("Success is stumbling from failure to failure with no loss of enthusiasm."); // Winston S. Churchill
+                quotesList.add("The only way to achieve the impossible is to believe it is possible."); // Charles Kingsleigh
+                quotesList.add("You are never too old to set another goal or to dream a new dream."); // C.S. Lewis
+                quotesList.add("The future belongs to those who believe in the beauty of their dreams."); // Eleanor Roosevelt
+                quotesList.add("Your time is limited, don't waste it living someone else's life."); // Steve Jobs
+                quotesList.add("It's not whether you get knocked down, it's whether you get up."); // Vince Lombardi
+                quotesList.add("The only place where success comes before work is in the dictionary."); // Vidal Sassoon
+                quotesList.add("Success usually comes to those who are too busy to be looking for it."); // Henry David Thoreau
+                quotesList.add("Don't watch the clock; do what it does. Keep going."); // Sam Levenson
                 quotesList.add("I’d rather be an optimist and a fool than a pessimist and right.");
                 quotesList.add("The one who follows the crowd will usually go no further than the crowd. Those who walk alone are likely to find themselves in places no one has ever been before.");
                 quotesList.add("What is right is not always popular and what is popular is not always right.");
