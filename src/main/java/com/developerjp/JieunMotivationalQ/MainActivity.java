@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         peopleNames.add("Woman Power");
         peopleNames.add("Confucius");
         peopleNames.add("Believe it!");
-        //peopleNames.add("Gary Vaynerchuk");
+        peopleNames.add("Through Storm");
         //peopleNames.add("Arnold Schwarzenegger");
 
         ArrayList<String> peoplePictures = new ArrayList<>();
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         peoplePictures.add("woman_power");
         peoplePictures.add("confucius");
         peoplePictures.add("albert_einstein");
-        //peoplePictures.add("gary_vaynerchuk");
+        peoplePictures.add("storm");
         //peoplePictures.add("arnold_schwarzenegger");
 
         // Set up the RecyclerView

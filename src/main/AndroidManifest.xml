@@ -5,13 +5,13 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/ic_local_cafe"
         android:label="MotiMosaic"
-        android:roundIcon="@drawable/ic_launcher_foreground"
+        android:roundIcon="@drawable/ic_local_cafe"
         android:supportsRtl="true"
         android:theme="@style/Theme.JieunMotivationalQ"
         android:exported="true"
-        tools:targetApi="31"
+        tools:targetApi="34"
         tools:ignore="Instantiatable">
 
         <meta-data
