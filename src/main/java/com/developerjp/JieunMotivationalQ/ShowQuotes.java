@@ -170,6 +170,17 @@ public class ShowQuotes extends AppCompatActivity {
                 quotesList.add("When you know a thing, to hold that you know it; and when you do not know a thing, to allow that you do not know it - this is knowledge.");
                 quotesList.add("To be wronged is nothing unless you continue to remember it.");
                 quotesList.add("Life is really simple, but we insist on making it complicated.");
+                quotesList.add("The will to win, the desire to succeed, the urge to reach your full potential... these are the keys that will unlock the door to personal excellence.");
+                quotesList.add("Choose a job you love, and you will never have to work a day in your life.");
+                quotesList.add("When it is obvious that the goals cannot be reached, don't adjust the goals, adjust the action steps.");
+                quotesList.add("It does not matter how slowly you go, as long as you do not stop.");
+                quotesList.add("Wheresoever you go, go with all your heart.");
+                quotesList.add("Learning without thought is labor lost; thought without learning is perilous.");
+                quotesList.add("To go beyond is as wrong as to fall short.");
+                quotesList.add("He who learns but does not think, is lost! He who thinks but does not learn is in great danger.");
+                quotesList.add("To be wronged is nothing, unless you continue to remember it.");
+                quotesList.add("Life is really simple, but we insist on making it complicated.");
+
                 break;
 
             case "Believe it!":
