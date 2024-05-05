@@ -1,24 +1,41 @@
 package com.developerjp.JieunMotivationalQ;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements MyRecyclerViewAdapterPeople.ItemClickListener {
 
+    private final ActivityResultLauncher<String> activityResultLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), new ActivityResultCallback<Boolean>() {
+        @Override
+        public void onActivityResult(Boolean o) {
+            if (o){
+                Toast.makeText(MainActivity.this, "Permission Granted", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(MainActivity.this, "Permission Denied", Toast.LENGTH_SHORT).show();
+
+            }
+        }
+    });
     private MyRecyclerViewAdapterPeople adapter;
 
-    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +64,6 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         peopleNames.add("Confucius");
         peopleNames.add("Believe it!");
         peopleNames.add("Through Storm");
-        //peopleNames.add("Arnold Schwarzenegger");
 
         ArrayList<String> peoplePictures = new ArrayList<>();
         peoplePictures.add("feel_it");
@@ -55,7 +71,6 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         peoplePictures.add("confucius");
         peoplePictures.add("albert_einstein");
         peoplePictures.add("storm");
-        //peoplePictures.add("arnold_schwarzenegger");
 
         // Set up the RecyclerView
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
@@ -64,12 +79,27 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
 
-
         MobileAds.initialize(this, initializationStatus -> {
             Log.d("Ads", "Initialization status: " + initializationStatus);
 
         });
 
+        // Set up daily notification
+        MaterialButton postNotification = findViewById(R.id.postNotification);
+        postNotification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && ActivityCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+                    // Request the permission
+                    activityResultLauncher.launch(android.Manifest.permission.POST_NOTIFICATIONS);
+                } else {
+                    Toast.makeText(MainActivity.this, "Permission Granted", Toast.LENGTH_SHORT).show();
+
+                    // Notification creation
+                    new Notification().onReceive(MainActivity.this, null);
+                }
+            }
+        });
     }
 
     @Override
@@ -78,4 +108,5 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         myIntent.putExtra("person", adapter.getItem(position));
         MainActivity.this.startActivity(myIntent);
     }
+
 }

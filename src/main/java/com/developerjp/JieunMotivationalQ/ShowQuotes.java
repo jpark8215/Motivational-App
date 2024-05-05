@@ -24,7 +24,6 @@ public class ShowQuotes extends AppCompatActivity {
         Intent intent = getIntent();
         String person = intent.getStringExtra("person");
 
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -43,12 +42,9 @@ public class ShowQuotes extends AppCompatActivity {
 
         // Generate a random index and set it for the adapter
         Random random = new Random();
-        int randomIndex = random.nextInt(quotesList.size());
+        int randomIndex = quotesList.isEmpty() ? 0 : random.nextInt(quotesList.size());
         adapter.setSelectedQuoteIndex(randomIndex);
-        adapter.notifyDataSetChanged(); // Refresh the RecyclerView
-
     }
-
 
     private void showQuotes(String person) {
         quotesList.clear(); // Clear the list before adding new quotes
@@ -76,7 +72,6 @@ public class ShowQuotes extends AppCompatActivity {
                 quotesList.add("The best way to predict the future is to create it. - Dr. Mae Jemison");
                 quotesList.add("You are the one that possesses the keys to your being. You carry the passport to your own happiness. - Diane von Fürstenberg");
                 quotesList.add("I am my best work - a series of road maps, reports, recipes, doodles, and prayers from the front lines. - Audre Lorde");
-                quotesList.add("The question isn't who's going to let me, it's who's going to stop me. - Ayn Rand");
                 quotesList.add("You are your best thing. - Toni Morrison");
                 quotesList.add("Don't wait around for other people to be happy for you. Any happiness you get you've got to make yourself. - Alice Walker");
                 quotesList.add("I don't know what the future holds, but I do know that I'm going to be positive and not wake up feeling desperate. - Billie Eilish");
@@ -90,8 +85,6 @@ public class ShowQuotes extends AppCompatActivity {
                 quotesList.add("I raise up my voice—not so I can shout, but so that those without a voice can be heard...we cannot succeed when half of us are held back. - Malala Yousafzai");
                 quotesList.add("I work really hard to just focus on the joy of the work that gets to be done and the impact of that rather than the ego of it. - Ava DuVernay");
                 quotesList.add("The difference between a broken community and a thriving one is the presence of women who are valued. - Michelle Obama");
-                quotesList.add("The only way to do great work is to love what you do.");
-                quotesList.add("Success is liking yourself, liking what you do, and liking how you do it. - Maya Angelou");
                 break;
 
             case "Through Storm":
@@ -107,7 +100,6 @@ public class ShowQuotes extends AppCompatActivity {
                 quotesList.add("When everything seems to be going against you, remember that the airplane takes off against the wind, not with it. - Henry Ford");
                 quotesList.add("You are not a product of your circumstances; you are a product of your decisions.");
                 quotesList.add("Don't give up. Normally it is the last key on the ring that opens the door. - Paulo Coelho");
-                quotesList.add("The only way to do great work is to love what you do.");
                 quotesList.add("It's okay not to be okay as long as you are not giving up.");
                 quotesList.add("Difficulties in life are intended to make us better, not bitter.");
                 quotesList.add("Even the darkest night will end, and the sun will rise. - Victor Hugo");
@@ -130,19 +122,6 @@ public class ShowQuotes extends AppCompatActivity {
                 quotesList.add("You are braver than you believe, stronger than you seem, and smarter than you think. - A.A. Milne");
                 quotesList.add("Life is 10% what happens to us and 90% how we react to it.");
                 quotesList.add("It always seems impossible until it's done. - Nelson Mandela");
-                quotesList.add("You are not what happened to you. You are what you choose to become.");
-                quotesList.add("The pain you feel today is the strength you feel tomorrow.");
-                quotesList.add("Every morning brings new potential, but only if you make the most of it.");
-                quotesList.add("The only way out of the labyrinth of suffering is to forgive. - John Green");
-                quotesList.add("The best way to predict the future is to create it. - Peter Drucker");
-                quotesList.add("Your present circumstances don't determine where you can go; they merely determine where you start. - Nido Qubein");
-                quotesList.add("Your struggles develop your strengths. When you go through hardships and decide not to surrender, that is strength.");
-                quotesList.add("Fall seven times, stand up eight.");
-                quotesList.add("You are stronger than you think.");
-                quotesList.add("When everything seems to be going against you, remember that the airplane takes off against the wind, not with it. - Henry Ford");
-                quotesList.add("Don't give up. Normally it is the last key on the ring that opens the door. - Paulo Coelho");
-
-
                 break;
 
             case "Confucius":
@@ -180,7 +159,6 @@ public class ShowQuotes extends AppCompatActivity {
                 quotesList.add("He who learns but does not think, is lost! He who thinks but does not learn is in great danger.");
                 quotesList.add("To be wronged is nothing, unless you continue to remember it.");
                 quotesList.add("Life is really simple, but we insist on making it complicated.");
-
                 break;
 
             case "Believe it!":
@@ -211,16 +189,16 @@ public class ShowQuotes extends AppCompatActivity {
                 quotesList.add("If you want to live a happy life, tie it to a goal, not to people or things.");
                 quotesList.add("Logic will get you from A to Z. Imagination will get you everywhere.");
                 quotesList.add("Common sense is what tells us the earth is flat.");
-                quotesList.add("Believe you can and you're halfway there."); // Theodore Roosevelt
-                quotesList.add("Success is stumbling from failure to failure with no loss of enthusiasm."); // Winston S. Churchill
-                quotesList.add("The only way to achieve the impossible is to believe it is possible."); // Charles Kingsleigh
-                quotesList.add("You are never too old to set another goal or to dream a new dream."); // C.S. Lewis
-                quotesList.add("The future belongs to those who believe in the beauty of their dreams."); // Eleanor Roosevelt
-                quotesList.add("Your time is limited, don't waste it living someone else's life."); // Steve Jobs
-                quotesList.add("It's not whether you get knocked down, it's whether you get up."); // Vince Lombardi
-                quotesList.add("The only place where success comes before work is in the dictionary."); // Vidal Sassoon
-                quotesList.add("Success usually comes to those who are too busy to be looking for it."); // Henry David Thoreau
-                quotesList.add("Don't watch the clock; do what it does. Keep going."); // Sam Levenson
+                quotesList.add("Believe you can and you're halfway there.");
+                quotesList.add("Success is stumbling from failure to failure with no loss of enthusiasm.");
+                quotesList.add("The only way to achieve the impossible is to believe it is possible.");
+                quotesList.add("You are never too old to set another goal or to dream a new dream.");
+                quotesList.add("The future belongs to those who believe in the beauty of their dreams.");
+                quotesList.add("Your time is limited, don't waste it living someone else's life.");
+                quotesList.add("It's not whether you get knocked down, it's whether you get up.");
+                quotesList.add("The only place where success comes before work is in the dictionary.");
+                quotesList.add("Success usually comes to those who are too busy to be looking for it.");
+                quotesList.add("Don't watch the clock; do what it does. Keep going.");
                 quotesList.add("I’d rather be an optimist and a fool than a pessimist and right.");
                 quotesList.add("The one who follows the crowd will usually go no further than the crowd. Those who walk alone are likely to find themselves in places no one has ever been before.");
                 quotesList.add("What is right is not always popular and what is popular is not always right.");
@@ -275,7 +253,5 @@ public class ShowQuotes extends AppCompatActivity {
                 quotesList.add("Success is not the key to happiness. Happiness is the key to success. - Albert Schweitzer");
                 break;
         }
-
-
     }
 }

@@ -3,4 +3,7 @@
     <string name="picture_of_benches_in_garden">Picture of benches in garden</string>
     <string name="person">Person</string>
     <string name="person_name">PersonName</string>
+    <string name="channel_name">NotificationChannel</string>
+    <string name="channel_description">NotificationChannelDesc</string>
+
 </resources>
