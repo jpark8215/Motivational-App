@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MotiMosaic</string>
+    <string name="main_image">Picture of a park with trees and a lake</string>
+    <string name="person">Person</string>
+    <string name="person_name">PersonName</string>
+    <string name="channel_name">NotificationChannel</string>
+    <string name="channel_description">NotificationChannelDesc</string>
+    <string name="get_daily_notification">Get Daily Notification</string>
+
+</resources>
