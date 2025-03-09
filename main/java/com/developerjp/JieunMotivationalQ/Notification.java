@@ -48,7 +48,27 @@ public class Notification extends BroadcastReceiver {
             "The greatest teacher, failure is. - Star Wars: Episode VIII - The Last Jedi",
             "It's not who I am underneath, but what I do that defines me. - Batman Begins",
             "All we have to decide is what to do with the time that is given to us. - The Lord of the Rings",
-            "Every man dies, not every man really lives. - Braveheart"
+            "Every man dies, not every man really lives. - Braveheart",
+            "The best way to predict the future is to create it. - Abraham Lincoln",
+            "It does not matter how slowly you go as long as you do not stop. - Confucius",
+            "Act as if what you do makes a difference. It does. - William James",
+            "You miss 100% of the shots you don't take. - Wayne Gretzky",
+            "The only limit to our realization of tomorrow is our doubts of today. - Franklin D. Roosevelt",
+            "You don’t have to be great to start, but you have to start to be great. - Zig Ziglar",
+            "The way to get started is to quit talking and begin doing. - Walt Disney",
+            "It always seems impossible until it’s done. - Nelson Mandela",
+            "You are capable of more than you know. - Glinda, The Wizard of Oz",
+            "Hard work beats talent when talent doesn’t work hard. - Tim Notke",
+            "Don’t wait for opportunity. Create it. - Anonymous",
+            "Success is the sum of small efforts, repeated day in and day out. - Robert Collier",
+            "The only thing standing between you and your goal is the story you keep telling yourself. - Jordan Belfort",
+            "Success is not the absence of failure; it’s the persistence through failure. - Aisha Tyler",
+            "In the middle of difficulty lies opportunity. - Albert Einstein",
+            "What lies behind us and what lies before us are tiny matters compared to what lies within us. - Ralph Waldo Emerson",
+            "Everything you’ve ever wanted is on the other side of fear. - George Addair",
+            "The best time to plant a tree was 20 years ago. The second best time is now. - Chinese Proverb",
+            "Don't be afraid to fail. Be afraid not to try. - Michael Jordan",
+            "What you get by achieving your goals is not as important as what you become by achieving your goals. - Zig Ziglar"
     };
 
     private static final String CHANNEL_ID = "Notification";

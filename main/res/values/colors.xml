@@ -41,7 +41,6 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
 
-
     <!--Material color list from https://material.io/guidelines/style/color.html-->
 
     <color name="red_50">#FFEBEE</color>
@@ -320,6 +319,21 @@
     <color name="grey_800">#424242</color>
     <color name="grey_900">#212121</color>
     <color name="grey_1000">#1a1a1a</color>
+
+    <color name="pastelMint">#98D8C8</color>
+    <color name="pastelLavender">#B6A3DB</color>
+    <color name="pastelSkyBlue">#A3C6E8</color>
+    <color name="pastelYellow">#FFEEAD</color>
+    <color name="pastelPeach">#FFD3B6</color>
+    <color name="pastelPink">#FFADD6</color>
+    <color name="pastelGreen">#ADE4B5</color>
+
+    <color name="pastelMintDark">#76A69C</color>
+    <color name="pastelLavenderDark">#8D7FAD</color>
+    <color name="pastelSkyBlueDark">#7F9DBC</color>
+
+    <color name="textOnPastel">#3E4E56</color>
+    <color name="textLightOnPastel">#5F7380</color>
 
 
     <array name="mdcolor_random">

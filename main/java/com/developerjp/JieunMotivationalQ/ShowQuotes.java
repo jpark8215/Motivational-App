@@ -51,6 +51,60 @@ public class ShowQuotes extends AppCompatActivity {
 
         //switch statement to show the correct quotes depending on which person was selected
         switch (person) {
+            case "Success in Action":
+                quotesList.add("The function of leadership is to produce more leaders, not more followers. - Ralph Nader");
+                quotesList.add("Leadership is not about being in charge. It’s about taking care of those in your charge. - Simon Sinek");
+                quotesList.add("A leader is one who knows the way, goes the way, and shows the way. - John C. Maxwell");
+                quotesList.add("The only way to do great work is to love what you do. - Steve Jobs");
+                quotesList.add("Leadership is the capacity to translate vision into reality. - Warren Bennis");
+                quotesList.add("The best way to predict your future is to create it. - Abraham Lincoln");
+                quotesList.add("Success is not final, failure is not fatal: It is the courage to continue that counts. - Winston Churchill");
+                quotesList.add("Innovation distinguishes between a leader and a follower. - Steve Jobs");
+                quotesList.add("Leadership is not about being the best. It’s about making everyone else better. - Anonymous");
+                quotesList.add("To lead people, walk behind them. - Lao Tzu");
+                quotesList.add("Don’t tell people how to do things, tell them what to do and let them surprise you with their results. - George S. Patton");
+                quotesList.add("The quality of a leader is reflected in the standards they set for themselves. - Ray Kroc");
+                quotesList.add("You don’t need a title to be a leader. - Anonymous");
+                quotesList.add("Leadership is not a position or a title, it is action and example. - Cory Booker");
+                quotesList.add("Leadership is the art of getting someone to do something you want done because he wants to do it. - Dwight D. Eisenhower");
+                quotesList.add("Leaders don’t create followers, they create more leaders. - Tom Peters");
+                quotesList.add("A leader is someone who demonstrates what’s possible. - Mark Yarnell");
+                quotesList.add("The growth and development of people is the highest calling of leadership. - Harvey S. Firestone");
+                quotesList.add("Leadership is influence. - John C. Maxwell");
+                quotesList.add("The best leaders are those most interested in surrounding themselves with assistants and associates smarter than they are. - John C. Maxwell");
+                quotesList.add("Leadership is the ability to get extraordinary achievement from ordinary people. - Brian Tracy");
+                quotesList.add("Don’t be a boss. Be a leader. - Anonymous");
+                quotesList.add("A good leader leads the people from above them. A great leader leads the people from within them. - M.D. Arnold");
+                quotesList.add("It’s not about being the best. It’s about being better than you were yesterday. - Anonymous");
+                quotesList.add("You manage things; you lead people. - Rear Admiral Grace Hopper");
+                quotesList.add("Management is doing things right; leadership is doing the right things. - Peter Drucker");
+                quotesList.add("Leadership is not about being in charge. It’s about taking care of those in your charge. - Simon Sinek");
+                quotesList.add("Leadership is not about being perfect. It’s about having the courage to be vulnerable. - Brené Brown");
+                quotesList.add("The greatest leader is not necessarily the one who does the greatest things. He is the one that gets the people to do the greatest things. - Ronald Reagan");
+                quotesList.add("Leadership is the art of motivating a group of people to act toward achieving a common goal. - Anonymous");
+                quotesList.add("The function of leadership is to produce more leaders, not more followers. - Ralph Nader");
+                quotesList.add("A leader is one who knows the way, goes the way, and shows the way. - John C. Maxwell");
+                quotesList.add("You don't lead by hitting people over the head—that’s assault, not leadership. - Dwight D. Eisenhower");
+                quotesList.add("Great leaders don’t tell you what to do. They show you how it’s done. - Anonymous");
+                quotesList.add("A good leader makes people feel that they are at the very heart of things, not at the periphery. - Warren Bennis");
+                quotesList.add("Leadership is the ability to inspire others to achieve a vision, even when that vision seems out of reach. - Anonymous");
+                quotesList.add("Leadership is the art of getting someone to do something you want done because he wants to do it. - Dwight D. Eisenhower");
+                quotesList.add("Leadership is not about being in charge. It’s about taking care of those in your charge. - Simon Sinek");
+                quotesList.add("Leadership is action, not position. - Donald H. McGannon");
+                quotesList.add("Leadership is about making others better as a result of your presence and making sure that impact lasts in your absence. - Sheryl Sandberg");
+                quotesList.add("The most effective way to do it, is to do it. - Amelia Earhart");
+                quotesList.add("In leadership, the most important thing is not authority, it’s trust. - Anonymous");
+                quotesList.add("People buy into the leader before they buy into the vision. - John C. Maxwell");
+                quotesList.add("A true leader has the confidence to stand alone, the courage to make tough decisions, and the compassion to listen to the needs of others. - Douglas MacArthur");
+                quotesList.add("A leader is someone who can adapt to any situation and create change. - Anonymous");
+                quotesList.add("Effective leadership is not about making speeches or being liked; leadership is defined by results not attributes. - Peter Drucker");
+                quotesList.add("The greatest leader is not necessarily the one who does the greatest things. He is the one that gets the people to do the greatest things. - Ronald Reagan");
+                quotesList.add("Don’t just be a leader. Be the kind of leader others want to follow. - Anonymous");
+                quotesList.add("Leadership is about making others better as a result of your presence and making sure that impact lasts in your absence. - Sheryl Sandberg");
+                quotesList.add("Success is the sum of small efforts, repeated day in and day out. - Robert Collier");
+                quotesList.add("A great leader is not a person who does great things. A great leader is a person who inspires others to do great things. - Ronald Reagan");
+                break;
+
             case "Proverbs":
                 quotesList.add("A little impatience will spoil great plans. - Chinese Proverb");
                 quotesList.add("Do not look where you fell, but where you slipped. - African Proverb");

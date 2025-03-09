@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
 
         // Data for the RecyclerView
         ArrayList<String> peopleNames = new ArrayList<>();
+        peopleNames.add("Success in Action");
         peopleNames.add("Proverbs");
         peopleNames.add("Feel it!");
         peopleNames.add("Woman Power");
@@ -67,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         peopleNames.add("Through Storm");
 
         ArrayList<String> peoplePictures = new ArrayList<>();
+        peoplePictures.add("success");
         peoplePictures.add("proverbs");
         peoplePictures.add("feel_it");
         peoplePictures.add("woman_power");
