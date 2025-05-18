@@ -103,7 +103,7 @@ public class MyRecyclerViewAdapterQuotes extends RecyclerView.Adapter<RecyclerVi
 
     // Method to get a random quote index
     private int getRandomQuoteIndex() {
-        if (mData.size() > 0) {
+        if (!mData.isEmpty()) {
             Random random = new Random();
             // Exclude the currently selected quote index to avoid repetition
             int newIndex = selectedQuoteIndex;

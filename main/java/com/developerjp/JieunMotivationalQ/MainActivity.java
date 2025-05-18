@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,17 +21,23 @@ import com.google.android.material.button.MaterialButton;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements MyRecyclerViewAdapterPeople.ItemClickListener {
+    private static final String TAG = "MainActivity";
 
-    private final ActivityResultLauncher<String> activityResultLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), new ActivityResultCallback<Boolean>() {
-        @Override
-        public void onActivityResult(Boolean o) {
-            if (o){
-                Toast.makeText(MainActivity.this, "Permission Granted", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(MainActivity.this, "Permission Denied", Toast.LENGTH_SHORT).show();
-            }
-        }
-    });
+    private final ActivityResultLauncher<String> activityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.RequestPermission(),
+            isGranted -> {
+                if (isGranted) {
+                    Log.d(TAG, "Notification permission granted");
+                    Toast.makeText(MainActivity.this, "Permission Granted", Toast.LENGTH_SHORT).show();
+                    // Schedule notification after permission is granted
+                    NotificationScheduler.scheduleNotification(MainActivity.this);
+                    // Show immediate notification
+                    new Notification().onReceive(MainActivity.this, null);
+                } else {
+                    Log.d(TAG, "Notification permission denied");
+                    Toast.makeText(MainActivity.this, "Permission Denied", Toast.LENGTH_SHORT).show();
+                }
+            });
 
     private MyRecyclerViewAdapterPeople adapter;
 
@@ -40,22 +45,19 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.d(TAG, "onCreate called");
 
-//        // Initialize Firebase and Crashlytics
-//        FirebaseApp.initializeApp(this);
-//        FirebaseCrashlytics.getInstance().setCrashlyticsCollectionEnabled(true);
-//
-//        // Add a button for testing crashes
-//        Button crashButton = new Button(this);
-//        crashButton.setText("Test Crash");
-//        crashButton.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View view) {
-//                throw new RuntimeException("Test Crash"); // Force a crash
-//            }
-//        });
-//        addContentView(crashButton, new ViewGroup.LayoutParams(
-//                ViewGroup.LayoutParams.MATCH_PARENT,
-//                ViewGroup.LayoutParams.WRAP_CONTENT));
+        // Initialize the notification button
+        MaterialButton postNotification = findViewById(R.id.postNotification);
+        if (postNotification != null) {
+            Log.d(TAG, "Notification button found");
+            postNotification.setOnClickListener(view -> {
+                Log.d(TAG, "Notification button clicked");
+                handleNotificationButtonClick();
+            });
+        } else {
+            Log.e(TAG, "Notification button not found in layout");
+        }
 
         // Data for the RecyclerView
         ArrayList<String> peopleNames = new ArrayList<>();
@@ -83,41 +85,31 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
 
-
         MobileAds.initialize(this, initializationStatus -> {
-            Log.d("Ads", "Initialization status: " + initializationStatus);
-
+            Log.d(TAG, "MobileAds initialization status: " + initializationStatus);
         });
+    }
 
-
-        final ActivityResultLauncher<String> activityResultLauncher = registerForActivityResult(
-                new ActivityResultContracts.RequestPermission(),
-                isGranted -> {
-                    if (isGranted) {
-                        // Permission is granted, trigger the notification
-                        new Notification().onReceive(MainActivity.this, null);
-                    }  // Permission denied, handle accordingly
-
-                }
-        );
-
-        // Set up daily notification
-        MaterialButton postNotification = findViewById(R.id.postNotification);
-        postNotification.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && ActivityCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-                    // Request the permission
-                    activityResultLauncher.launch(android.Manifest.permission.POST_NOTIFICATIONS);
-                } else {
-                    Toast.makeText(MainActivity.this, "Permission Granted", Toast.LENGTH_SHORT).show();
-
-                    // Notification creation
-                    new Notification().onReceive(MainActivity.this, null);
-                }
+    private void handleNotificationButtonClick() {
+        Log.d(TAG, "Handling notification button click");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+                Log.d(TAG, "Requesting notification permission");
+                activityResultLauncher.launch(android.Manifest.permission.POST_NOTIFICATIONS);
+            } else {
+                Log.d(TAG, "Notification permission already granted");
+                Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
+                // Schedule notification
+                NotificationScheduler.scheduleNotification(this);
+                // Show immediate notification
+                new Notification().onReceive(this, null);
             }
-        });
-
+        } else {
+            Log.d(TAG, "Android version below Tiramisu, no permission needed");
+            // For Android 12 and below, no permission needed
+            NotificationScheduler.scheduleNotification(this);
+            new Notification().onReceive(this, null);
+        }
     }
 
     @Override

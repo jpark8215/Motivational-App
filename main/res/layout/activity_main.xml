@@ -23,7 +23,6 @@
             app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
             app:titleEnabled="false">
 
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -44,10 +43,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|start"
-                android:layout_marginStart="5dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="16dp"
                 android:fontFamily="cursive"
                 android:text="@string/get_daily_notification"
-                app:backgroundTint="@color/pastelSkyBlueDark" />
+                android:textColor="@color/white"
+                android:padding="12dp"
+                android:elevation="4dp"
+                app:backgroundTint="@color/pastelSkyBlueDark"
+                app:cornerRadius="8dp" />
 
             <TextView
                 android:id="@+id/txtTitle"
@@ -88,7 +92,6 @@
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
-
 
         </LinearLayout>
 
