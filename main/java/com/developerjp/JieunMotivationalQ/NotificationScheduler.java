@@ -54,12 +54,13 @@ public class NotificationScheduler {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 try {
                     if (canScheduleExactAlarms) {
-                        alarmManager.setExactAndAllowWhileIdle(
+                        alarmManager.setRepeating(
                                 AlarmManager.RTC_WAKEUP,
                                 calendar.getTimeInMillis(),
+                                AlarmManager.INTERVAL_DAY,
                                 pendingIntent
                         );
-                        Log.d(TAG, "Exact alarm scheduled for: " + calendar.getTime().toString());
+                        Log.d(TAG, "Exact repeating alarm scheduled for: " + calendar.getTime());
                     } else {
                         // Fallback to inexact alarm if exact alarms are not allowed
                         alarmManager.setInexactRepeating(
@@ -68,7 +69,7 @@ public class NotificationScheduler {
                                 AlarmManager.INTERVAL_DAY,
                                 pendingIntent
                         );
-                        Log.d(TAG, "Inexact alarm scheduled for: " + calendar.getTime().toString());
+                        Log.d(TAG, "Inexact repeating alarm scheduled for: " + calendar.getTime());
                     }
                 } catch (SecurityException e) {
                     Log.e(TAG, "SecurityException while scheduling alarm: " + e.getMessage(), e);
@@ -79,16 +80,17 @@ public class NotificationScheduler {
                             AlarmManager.INTERVAL_DAY,
                             pendingIntent
                     );
-                    Log.d(TAG, "Fallback to inexact alarm scheduled for: " + calendar.getTime().toString());
+                    Log.d(TAG, "Fallback to inexact repeating alarm scheduled for: " + calendar.getTime());
                 }
             } else {
                 try {
-                    alarmManager.setExact(
+                    alarmManager.setRepeating(
                             AlarmManager.RTC_WAKEUP,
                             calendar.getTimeInMillis(),
+                            AlarmManager.INTERVAL_DAY,
                             pendingIntent
                     );
-                    Log.d(TAG, "Exact alarm scheduled for: " + calendar.getTime().toString());
+                    Log.d(TAG, "Repeating alarm scheduled for: " + calendar.getTime());
                 } catch (SecurityException e) {
                     Log.e(TAG, "SecurityException while scheduling alarm: " + e.getMessage(), e);
                     // Fallback to inexact alarm
@@ -98,7 +100,7 @@ public class NotificationScheduler {
                             AlarmManager.INTERVAL_DAY,
                             pendingIntent
                     );
-                    Log.d(TAG, "Fallback to inexact alarm scheduled for: " + calendar.getTime().toString());
+                    Log.d(TAG, "Fallback to inexact repeating alarm scheduled for: " + calendar.getTime());
                 }
             }
         } catch (Exception e) {

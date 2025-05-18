@@ -5,10 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.mikhaellopez.circularimageview.CircularImageView;
+
 import com.bumptech.glide.Glide;
+import com.mikhaellopez.circularimageview.CircularImageView;
+
 import java.util.List;
 
 public class MyRecyclerViewAdapterPeople extends RecyclerView.Adapter<MyRecyclerViewAdapterPeople.ViewHolder> {
@@ -16,8 +19,8 @@ public class MyRecyclerViewAdapterPeople extends RecyclerView.Adapter<MyRecycler
     private final List<String> mDataNames;
     private final List<String> mDataPictures;
     private final LayoutInflater mInflater;
-    private ItemClickListener mClickListener;
     private final Context context;
+    private ItemClickListener mClickListener;
 
     MyRecyclerViewAdapterPeople(Context context, List<String> dataNames, List<String> dataPictures) {
         this.mInflater = LayoutInflater.from(context);
@@ -58,6 +61,22 @@ public class MyRecyclerViewAdapterPeople extends RecyclerView.Adapter<MyRecycler
         return mDataNames.size();
     }
 
+    String getItem(int id) {
+        return mDataNames.get(id);
+    }
+
+    void setClickListener(ItemClickListener itemClickListener) {
+        this.mClickListener = itemClickListener;
+    }
+
+    private int getDrawableResourceByName(String resourceName) {
+        return context.getResources().getIdentifier(resourceName, "drawable", context.getPackageName());
+    }
+
+    public interface ItemClickListener {
+        void onItemClick(View view, int position);
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         final TextView myTextView;
         final CircularImageView myCircularImageView;
@@ -73,21 +92,5 @@ public class MyRecyclerViewAdapterPeople extends RecyclerView.Adapter<MyRecycler
         public void onClick(View view) {
             if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
         }
-    }
-
-    String getItem(int id) {
-        return mDataNames.get(id);
-    }
-
-    void setClickListener(ItemClickListener itemClickListener) {
-        this.mClickListener = itemClickListener;
-    }
-
-    public interface ItemClickListener {
-        void onItemClick(View view, int position);
-    }
-
-    private int getDrawableResourceByName(String resourceName) {
-        return context.getResources().getIdentifier(resourceName, "drawable", context.getPackageName());
     }
 }

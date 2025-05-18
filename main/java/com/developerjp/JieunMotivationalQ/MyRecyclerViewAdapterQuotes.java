@@ -1,6 +1,5 @@
 package com.developerjp.JieunMotivationalQ;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,13 +17,12 @@ import java.util.List;
 import java.util.Random;
 
 public class MyRecyclerViewAdapterQuotes extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private final List<String> mData;
-    private final LayoutInflater mInflater;
-    private int selectedQuoteIndex = -1;
-
     private static final int VIEW_TYPE_QUOTE = 1;
     private static final int VIEW_TYPE_AD = 0;
     private static final int QUOTES_PER_AD = 8;
+    private final List<String> mData;
+    private final LayoutInflater mInflater;
+    private int selectedQuoteIndex = -1;
 
     // Data is passed into the constructor
     MyRecyclerViewAdapterQuotes(Context context, List<String> data) {
@@ -79,28 +77,6 @@ public class MyRecyclerViewAdapterQuotes extends RecyclerView.Adapter<RecyclerVi
         return mData.size() + (mData.size() / QUOTES_PER_AD);
     }
 
-    // ViewHolder for quotes
-    private static class QuoteViewHolder extends RecyclerView.ViewHolder {
-        final TextView personNameTextView;
-
-        QuoteViewHolder(View itemView) {
-            super(itemView);
-            personNameTextView = itemView.findViewById(R.id.personName);
-        }
-    }
-
-    // ViewHolder for AdView
-    public static class AdViewHolder extends RecyclerView.ViewHolder {
-        final AdView adView;
-
-        AdViewHolder(View itemView) {
-            super(itemView);
-            adView = itemView.findViewById(R.id.adView);
-            AdRequest adRequest = new AdRequest.Builder().build();
-            adView.loadAd(adRequest);
-        }
-    }
-
     // Method to get a random quote index
     private int getRandomQuoteIndex() {
         if (!mData.isEmpty()) {
@@ -124,9 +100,30 @@ public class MyRecyclerViewAdapterQuotes extends RecyclerView.Adapter<RecyclerVi
     }
 
     // Setter method to set the selected quote index
-    @SuppressLint("NotifyDataSetChanged")
     public void setSelectedQuoteIndex(int index) {
         // No need to clear mData if you want to show both ad and quote views
         shuffleQuotes();
+    }
+
+    // ViewHolder for quotes
+    private static class QuoteViewHolder extends RecyclerView.ViewHolder {
+        final TextView personNameTextView;
+
+        QuoteViewHolder(View itemView) {
+            super(itemView);
+            personNameTextView = itemView.findViewById(R.id.personName);
+        }
+    }
+
+    // ViewHolder for AdView
+    public static class AdViewHolder extends RecyclerView.ViewHolder {
+        final AdView adView;
+
+        AdViewHolder(View itemView) {
+            super(itemView);
+            adView = itemView.findViewById(R.id.adView);
+            AdRequest adRequest = new AdRequest.Builder().build();
+            adView.loadAd(adRequest);
+        }
     }
 }

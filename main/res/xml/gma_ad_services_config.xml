@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ad-services-config>
+    <custom-audiences allowAllToRead="true" />
+    <measurement allowAllToRead="true" />
+    <attribution allowAllToRead="true" />
+    <topics allowAllToRead="true" />
+</ad-services-config>
