@@ -5,18 +5,21 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.ads.MobileAds;
-import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
 
@@ -31,8 +34,6 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
                     Toast.makeText(MainActivity.this, "Permission Granted", Toast.LENGTH_SHORT).show();
                     // Schedule notification after permission is granted
                     NotificationScheduler.scheduleNotification(MainActivity.this);
-                    // Show immediate notification
-                    new Notification().onReceive(MainActivity.this, null);
                 } else {
                     Log.d(TAG, "Notification permission denied");
                     Toast.makeText(MainActivity.this, "Permission Denied", Toast.LENGTH_SHORT).show();
@@ -47,17 +48,8 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate called");
 
-        // Initialize the notification button
-        MaterialButton postNotification = findViewById(R.id.postNotification);
-        if (postNotification != null) {
-            Log.d(TAG, "Notification button found");
-            postNotification.setOnClickListener(view -> {
-                Log.d(TAG, "Notification button clicked");
-                handleNotificationButtonClick();
-            });
-        } else {
-            Log.e(TAG, "Notification button not found in layout");
-        }
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         // Data for the RecyclerView
         ArrayList<String> peopleNames = new ArrayList<>();
@@ -85,9 +77,22 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
 
-        MobileAds.initialize(this, initializationStatus -> {
-            Log.d(TAG, "MobileAds initialization status: " + initializationStatus);
-        });
+        MobileAds.initialize(this, initializationStatus -> Log.d(TAG, "MobileAds initialization status: " + initializationStatus));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.action_notifications) {
+            handleNotificationButtonClick();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void handleNotificationButtonClick() {
@@ -101,11 +106,11 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
                 Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
                 // Schedule notification
                 NotificationScheduler.scheduleNotification(this);
-                // Show immediate notification
                 new Notification().onReceive(this, null);
             }
         } else {
             Log.d(TAG, "Android version below Tiramisu, no permission needed");
+            Toast.makeText(this, "Notification Scheduled", Toast.LENGTH_SHORT).show();
             // For Android 12 and below, no permission needed
             NotificationScheduler.scheduleNotification(this);
             new Notification().onReceive(this, null);

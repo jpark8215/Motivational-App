@@ -14,7 +14,6 @@ import com.google.android.gms.ads.AdView;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 public class MyRecyclerViewAdapterQuotes extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static final int VIEW_TYPE_QUOTE = 1;
@@ -22,12 +21,13 @@ public class MyRecyclerViewAdapterQuotes extends RecyclerView.Adapter<RecyclerVi
     private static final int QUOTES_PER_AD = 8;
     private final List<String> mData;
     private final LayoutInflater mInflater;
-    private int selectedQuoteIndex = -1;
+    private final int selectedQuoteIndex = -1;
 
     // Data is passed into the constructor
     MyRecyclerViewAdapterQuotes(Context context, List<String> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
+        Collections.shuffle(this.mData);
     }
 
     @Override
@@ -56,17 +56,24 @@ public class MyRecyclerViewAdapterQuotes extends RecyclerView.Adapter<RecyclerVi
         switch (holder.getItemViewType()) {
             case VIEW_TYPE_AD:
                 AdViewHolder adViewHolder = (AdViewHolder) holder;
-                // Hide the first ad
-                adViewHolder.adView.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
+                adViewHolder.adView.setVisibility(View.VISIBLE);
                 break;
             case VIEW_TYPE_QUOTE:
                 QuoteViewHolder quoteViewHolder = (QuoteViewHolder) holder;
-                // Calculate the position of the quote in the original data list
                 int quotePosition = position - position / (QUOTES_PER_AD + 1);
-                String quote = mData.get(quotePosition);
-                quoteViewHolder.personNameTextView.setText(quote);
-                quoteViewHolder.personNameTextView.setVisibility(View.VISIBLE);
-                // Handle quote-specific binding
+                String fullQuote = mData.get(quotePosition);
+
+                String quoteText = fullQuote;
+                String quoteAuthor = "";
+
+                int lastHyphen = fullQuote.lastIndexOf(" - ");
+                if (lastHyphen != -1) {
+                    quoteText = fullQuote.substring(0, lastHyphen).trim();
+                    quoteAuthor = fullQuote.substring(lastHyphen).trim();
+                }
+
+                quoteViewHolder.quoteTextView.setText(quoteText);
+                quoteViewHolder.authorTextView.setText(quoteAuthor);
                 break;
         }
     }
@@ -77,41 +84,15 @@ public class MyRecyclerViewAdapterQuotes extends RecyclerView.Adapter<RecyclerVi
         return mData.size() + (mData.size() / QUOTES_PER_AD);
     }
 
-    // Method to get a random quote index
-    private int getRandomQuoteIndex() {
-        if (!mData.isEmpty()) {
-            Random random = new Random();
-            // Exclude the currently selected quote index to avoid repetition
-            int newIndex = selectedQuoteIndex;
-            while (newIndex == selectedQuoteIndex) {
-                newIndex = random.nextInt(mData.size());
-            }
-            selectedQuoteIndex = newIndex;
-            return newIndex;
-        } else {
-            return -1;
-        }
-    }
-
-    // Method to shuffle the list of quotes randomly
-    private void shuffleQuotes() {
-        Collections.shuffle(mData);
-        notifyDataSetChanged();
-    }
-
-    // Setter method to set the selected quote index
-    public void setSelectedQuoteIndex(int index) {
-        // No need to clear mData if you want to show both ad and quote views
-        shuffleQuotes();
-    }
-
     // ViewHolder for quotes
     private static class QuoteViewHolder extends RecyclerView.ViewHolder {
-        final TextView personNameTextView;
+        final TextView quoteTextView;
+        final TextView authorTextView;
 
         QuoteViewHolder(View itemView) {
             super(itemView);
-            personNameTextView = itemView.findViewById(R.id.personName);
+            quoteTextView = itemView.findViewById(R.id.quote_text);
+            authorTextView = itemView.findViewById(R.id.quote_author);
         }
     }
 

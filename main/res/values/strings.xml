@@ -5,6 +5,7 @@
     <string name="person_name">PersonName</string>
     <string name="channel_name">NotificationChannel</string>
     <string name="channel_description">NotificationChannelDesc</string>
-    <string name="get_daily_notification">Get Daily Notification</string>
-
+    <string name="daily_inspiration">Your Daily Spark</string>
+    <string name="sample_quote">"The best way to predict the future is to create it."</string>
+    <string name="notifications">Notifications</string>
 </resources>

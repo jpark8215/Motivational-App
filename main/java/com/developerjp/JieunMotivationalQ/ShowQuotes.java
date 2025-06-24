@@ -2,18 +2,14 @@ package com.developerjp.JieunMotivationalQ;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.button.MaterialButton;
-
 import java.util.ArrayList;
-import java.util.Random;
-
+import java.util.Objects;
 
 public class ShowQuotes extends AppCompatActivity {
 
@@ -21,39 +17,36 @@ public class ShowQuotes extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_show_quotes);
+
         // Grabs the value of the person clicked
         Intent intent = getIntent();
         String person = intent.getStringExtra("person");
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        // Hide the notification button in quotes view
-        MaterialButton postNotification = findViewById(R.id.postNotification);
-        if (postNotification != null) {
-            postNotification.setVisibility(View.GONE);
-        }
-
-        // Sets the text to the name of the person
-        TextView txtTitle = findViewById(R.id.txtTitle);
-        txtTitle.setText(person);
+        Toolbar toolbar = findViewById(R.id.toolbar_quotes);
+        setSupportActionBar(toolbar);
+        Objects.requireNonNull(getSupportActionBar()).setTitle(person);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Populate the array with data - the quotes to show
         assert person != null;
         showQuotes(person);
 
         // Set up the RecyclerView
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView_quotes);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         MyRecyclerViewAdapterQuotes adapter = new MyRecyclerViewAdapterQuotes(this, quotesList);
         recyclerView.setAdapter(adapter);
 
-        // Generate a random index and set it for the adapter
-        Random random = new Random();
-        int randomIndex = quotesList.isEmpty() ? 0 : random.nextInt(quotesList.size());
-        adapter.setSelectedQuoteIndex(randomIndex);
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+    
     private void showQuotes(String person) {
         quotesList.clear(); // Clear the list before adding new quotes
 

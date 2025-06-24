@@ -1,77 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp">
 
-
-    <androidx.cardview.widget.CardView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/spacing_large"
-        android:layout_marginRight="@dimen/spacing_large"
-        android:background="@android:color/white"
-        app:cardCornerRadius="2dp"
-        app:cardElevation="2dp">
+        android:padding="16dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/personPicture"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/feel_it"
+            app:civ_border_color="?attr/colorPrimary"
+            app:civ_border_width="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/feel_it" />
+
+        <TextView
+            android:id="@+id/personName"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingTop="@dimen/spacing_large"
-            android:paddingBottom="@dimen/spacing_large"
-            android:paddingLeft="@dimen/spacing_large"
-            android:paddingRight="@dimen/spacing_large">
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/person_name"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textColor="?attr/colorOnSurface"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/chevron"
+            app:layout_constraintStart_toEndOf="@+id/personPicture"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <View
-                android:id="@+id/spacer"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
+        <ImageView
+            android:id="@+id/chevron"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_chevron_right"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="?attr/colorOnSurface"
+            android:contentDescription="@null" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="@dimen/spacing_xmlarge"
-                android:orientation="horizontal">
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <com.mikhaellopez.circularimageview.CircularImageView
-                    android:id="@+id/personPicture"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:src="@drawable/feel_it"
-                    app:civ_border="true"
-                    app:civ_border_color="@color/grey_10"
-                    app:civ_shadow="true"
-                    app:civ_shadow_radius="1dp"
-                    app:civ_border_width="@dimen/spacing_xsmall" />
-
-                <View
-                    android:layout_width="@dimen/spacing_middle"
-                    android:layout_height="0dp" />
-
-                <TextView
-                    android:id="@+id/personName"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:minHeight="@dimen/spacing_xmlarge"
-                    android:text="@string/person"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                    android:textColor="@color/grey_700"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/spacing_large" />
-
-
-</LinearLayout>
+</com.google.android.material.card.MaterialCardView>

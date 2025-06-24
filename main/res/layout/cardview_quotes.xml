@@ -1,49 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp">
 
-    <!-- CardView - Top part -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/spacing_large"
-        android:layout_marginRight="@dimen/spacing_large"
-        android:background="@android:color/white"
-        app:cardCornerRadius="2dp"
-        app:cardElevation="2dp">
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <!-- CardView Content -->
-        <LinearLayout
+        <TextView
+            android:id="@+id/quote_text"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingLeft="@dimen/spacing_large"
-            android:paddingTop="@dimen/spacing_large"
-            android:paddingRight="@dimen/spacing_large"
-            android:paddingBottom="@dimen/spacing_large">
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:layout_marginBottom="8dp"/>
 
-            <TextView
-                android:id="@+id/personName"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:minHeight="@dimen/spacing_xmlarge"
-                android:text="@string/person_name"
-                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                android:textColor="@color/overlay_dark_50"
-                android:textStyle="bold"
-                android:padding="@dimen/spacing_large"
-                android:background="@drawable/textview_border" />
+        <TextView
+            android:id="@+id/quote_author"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textAppearance="?attr/textAppearanceCaption"
+            android:textStyle="italic"/>
+    </LinearLayout>
 
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <!-- Include AdView layout below CardView -->
-
-</RelativeLayout>
+</com.google.android.material.card.MaterialCardView>
