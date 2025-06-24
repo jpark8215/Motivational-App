@@ -3,7 +3,7 @@
 
 ## Overview
 
-**MotiMosaic** is a motivational quotes app targeting women in their 20s and 30s. It features a modern Material 3 design, a fresh color palette, and a user-friendly interface. The app displays daily inspiration, categorized quote lists, and supports notifications.
+**MotiMosaic** is a motivational quotes app. It features a modern Material 3 design, a fresh color palette, and a user-friendly interface. The app displays daily inspiration, categorized quote lists, and supports notifications.
 
 ---
 
