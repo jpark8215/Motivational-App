@@ -52,7 +52,57 @@ public class ShowQuotes extends AppCompatActivity {
 
         //switch statement to show the correct quotes depending on which person was selected
         switch (person) {
-            case "Success in Action":
+            case "Move, Then Win":
+                quotesList.add("Success doesn't come from what you do occasionally, it comes from what you do consistently. - Marie Forleo");
+                quotesList.add("Action is the foundational key to all success. - Pablo Picasso");
+                quotesList.add("You don’t have to be great to start, but you have to start to be great. - Zig Ziglar");
+                quotesList.add("The distance between dreams and reality is called action.");
+                quotesList.add("Success is less about luck and more about showing up when it’s hard.");
+                quotesList.add("Don’t wait for the perfect moment. Take the moment and make it perfect.");
+                quotesList.add("Results happen when intentions turn into actions.");
+                quotesList.add("A goal without action is just a wish.");
+                quotesList.add("Success isn’t found in thinking more — it’s found in doing more.");
+                quotesList.add("Dream big, but work smart — success lives in effort.");
+                quotesList.add("You can’t build a legacy by waiting. Start moving.");
+                quotesList.add("Ideas are seeds. Action is the sunlight that makes them grow.");
+                quotesList.add("Your future depends on what you do today. - Mahatma Gandhi");
+                quotesList.add("The smallest step in the right direction can end up being the biggest step of your life.");
+                quotesList.add("Action transforms fear into confidence.");
+                quotesList.add("Start now. Get better as you go.");
+                quotesList.add("Momentum is born the moment you begin.");
+                quotesList.add("Nothing works unless you do. - Maya Angelou");
+                quotesList.add("Stop waiting for motivation. Show up and let discipline lead.");
+                quotesList.add("Success is built one action at a time.");
+                quotesList.add("Done is better than perfect.");
+                quotesList.add("Execution beats intention every single time.");
+                quotesList.add("The path to success is paved with intentional steps.");
+                quotesList.add("Success is not owned, it’s leased — and rent is due every day. - J.J. Watt");
+                quotesList.add("You’ll never finish what you never start.");
+                quotesList.add("Every action you take is a vote for the person you want to become. - James Clear");
+                quotesList.add("Waiting is a decision — and not one that leads to success.");
+                quotesList.add("What you do today shapes who you’ll be tomorrow.");
+                quotesList.add("Start before you're ready. Success doesn’t wait.");
+                quotesList.add("Progress only happens when action shows up.");
+                quotesList.add("The grind you avoid is the greatness you delay.");
+                quotesList.add("Talk less. Do more.");
+                quotesList.add("Don’t fear failure — fear inaction.");
+                quotesList.add("Success follows those who move, not those who pause.");
+                quotesList.add("Ideas are everywhere. Action is rare. Be rare.");
+                quotesList.add("Discipline is the bridge between goals and accomplishment. - Jim Rohn");
+                quotesList.add("Success begins the moment you stop hesitating.");
+                quotesList.add("Action is the cure to overthinking.");
+                quotesList.add("You can't cross the sea merely by standing and staring at the water. - Rabindranath Tagore");
+                quotesList.add("The only way to get ahead is to get started.");
+                quotesList.add("You don’t climb mountains by looking at them. You climb by stepping up.");
+                quotesList.add("Start small, act daily, and stay consistent.");
+                quotesList.add("Success is motion multiplied by focus.");
+                quotesList.add("Do one thing today that your future self will thank you for.");
+                quotesList.add("The hustle puts you where the luck can find you.");
+                quotesList.add("Don’t measure success by outcomes — measure it by the actions you control.");
+                quotesList.add("Every expert was once a beginner who kept going.");
+                quotesList.add("The secret to your future is hidden in your daily routine.");
+                quotesList.add("Move with purpose. Act with intention.");
+                quotesList.add("You can’t win if you never enter the game.");
                 quotesList.add("The function of leadership is to produce more leaders, not more followers. - Ralph Nader");
                 quotesList.add("Leadership is not about being in charge. It's about taking care of those in your charge. - Simon Sinek");
                 quotesList.add("A leader is one who knows the way, goes the way, and shows the way. - John C. Maxwell");
@@ -106,7 +156,7 @@ public class ShowQuotes extends AppCompatActivity {
                 quotesList.add("A great leader is not a person who does great things. A great leader is a person who inspires others to do great things. - Ronald Reagan");
                 break;
 
-            case "Proverbs":
+            case "Timeless Truth Drops":
                 quotesList.add("A little impatience will spoil great plans. - Chinese Proverb");
                 quotesList.add("Do not look where you fell, but where you slipped. - African Proverb");
                 quotesList.add("He who asks is a fool for five minutes, but he who does not ask remains a fool forever. - Chinese Proverb");
@@ -162,6 +212,7 @@ public class ShowQuotes extends AppCompatActivity {
                 quotesList.add("The beginning is the half of every action. - Greek Proverb");
                 quotesList.add("There is no time like the present. - English Proverb");
                 quotesList.add("A friend in need is a friend indeed. - English Proverb");
+                quotesList.add("Fall seven times, stand up eight. - Japanese Proverb");
                 quotesList.add("Do not count your chickens before they hatch. - English Proverb");
                 quotesList.add("The early bird catches the worm. - English Proverb");
                 quotesList.add("One who is not wise with words is a fool. - French Proverb");
@@ -203,7 +254,7 @@ public class ShowQuotes extends AppCompatActivity {
                 quotesList.add("To teach is to learn twice. - French Proverb");
                 break;
 
-            case "Woman Power":
+            case "Unapologetically Her":
                 quotesList.add("I am not free while any woman is unfree, even when her shackles are very different from my own. - Audre Lorde");
                 quotesList.add("Do not wait for someone else to come and speak for you. It's you who can change the world. - Malala Yousafzai");
                 quotesList.add("I have learned over the years that when one's mind is made up, this diminishes fear. - Rosa Parks");
@@ -287,7 +338,46 @@ public class ShowQuotes extends AppCompatActivity {
                 quotesList.add("The difference between a broken community and a thriving one is the presence of women who are valued. - Michelle Obama");
                 break;
 
-            case "Through Storm":
+            case "Grace Under Pressure":
+                quotesList.add("You don't drown by falling in the water; you drown by staying there. - Edwin Louis Cole");
+                quotesList.add("Your scars are proof that you survived what tried to break you.");
+                quotesList.add("Every setback is a setup for a powerful rise.");
+                quotesList.add("Life doesn’t get easier. You just get stronger.");
+                quotesList.add("Bend, but never break — that is the art of resilience.");
+                quotesList.add("You have been through storms and still bloom — that is power.");
+                quotesList.add("What crushed you once can’t touch you now if you've rebuilt with grace.");
+                quotesList.add("Resilience means you’re allowed to cry — just never to quit.");
+                quotesList.add("You are more than what happened to you — you are who you chose to become after.");
+                quotesList.add("Rising after the fall is what turns pain into power.");
+                quotesList.add("Survival is not just instinct — it’s strength dressed in grit.");
+                quotesList.add("The bounce back is always stronger than the fall.");
+                quotesList.add("You were not buried, you were planted.");
+                quotesList.add("Adversity introduces you to parts of yourself you never knew were strong.");
+                quotesList.add("Resilience doesn’t mean resistance; it means recovery.");
+                quotesList.add("The wound is where the light enters. - Rumi");
+                quotesList.add("Keep going — your future self is silently cheering you on.");
+                quotesList.add("You’ve survived 100% of your worst days — that’s not luck, that’s resilience.");
+                quotesList.add("Your greatest strength is how you keep showing up after everything tried to stop you.");
+                quotesList.add("Sometimes the most powerful thing you can do is keep breathing.");
+                quotesList.add("When the world says 'give up,' resilience says 'one more time.'");
+                quotesList.add("Broken crayons still color. So do you.");
+                quotesList.add("Your bounce back is proof of your breakthrough.");
+                quotesList.add("The cracks in you let your courage shine through.");
+                quotesList.add("Never underestimate the quiet strength of someone who refuses to quit.");
+                quotesList.add("Rising stronger is not about forgetting pain — it’s about facing it and moving forward.");
+                quotesList.add("Resilience: the art of starting again… and again.");
+                quotesList.add("Your resilience is the muscle built every time you refuse to give up.");
+                quotesList.add("The storm was tough, but so are you.");
+                quotesList.add("You are built to bend, not break.");
+                quotesList.add("The climb is hard, but the view is earned.");
+                quotesList.add("Every time you heal, you rewrite your story in bold.");
+                quotesList.add("Resilience is when your courage outlasts your fear.");
+                quotesList.add("You rise not because you never fell, but because you chose not to stay down.");
+                quotesList.add("The pain shaped you, but it didn’t define you.");
+                quotesList.add("Tough times reveal tough souls.");
+                quotesList.add("With every fall, your roots grow deeper.");
+                quotesList.add("Resilience is refusing to let your past become your prison.");
+                quotesList.add("You are not fragile — you’re forged.");
                 quotesList.add("You don't have to control your thoughts. You just have to stop letting them control you. - Dan Millman");
                 quotesList.add("This too shall pass. It may pass like a kidney stone, but it will pass.");
                 quotesList.add("Hardships often prepare ordinary people for an extraordinary destiny. - C.S. Lewis");
@@ -403,7 +493,7 @@ public class ShowQuotes extends AppCompatActivity {
                 quotesList.add("After the rain, there is growth. You will flourish.");
                 break;
 
-            case "Confucius":
+            case "Ancient Brilliance":
                 quotesList.add("It does not matter how slowly you go as long as you do not stop.");
                 quotesList.add("Our greatest glory is not in never falling, but in rising every time we fall.");
                 quotesList.add("Real knowledge is to know the extent of one's ignorance.");
@@ -515,7 +605,6 @@ public class ShowQuotes extends AppCompatActivity {
                 quotesList.add("You were born to be a star, don't let anyone dim your shine.");
                 quotesList.add("Trust yourself and trust the process of life. Everything is unfolding as it should.");
                 quotesList.add("Don't be afraid to shine. The world needs your light.");
-                quotesList.add("Be your own biggest cheerleader.");
                 quotesList.add("You are worthy of all the love, success, and happiness you dream of.");
                 quotesList.add("Believe in your abilities. You are capable of more than you know.");
                 quotesList.add("The only limit to your success is your willingness to believe in it.");
@@ -557,8 +646,57 @@ public class ShowQuotes extends AppCompatActivity {
                 quotesList.add("Success begins the moment you believe you can achieve it.");
                 break;
 
-            case "Believe it!":
-                quotesList.add("Believe you can and you're halfway there. - Theodore Roosevelt");
+            case "Built by Belief":
+                quotesList.add("Believe in yourself and you will be unstoppable.");
+                quotesList.add("You are more capable than you give yourself credit for.");
+                quotesList.add("Believe you can and you’re halfway there. - Theodore Roosevelt");
+                quotesList.add("Confidence starts with believing you belong.");
+                quotesList.add("Your belief in yourself sets the tone for everything that follows.");
+                quotesList.add("Stop doubting your greatness and start owning it.");
+                quotesList.add("Self-belief is the spark that ignites all achievement.");
+                quotesList.add("You have everything you need within you to succeed.");
+                quotesList.add("The most powerful voice you’ll ever hear is your own — speak faith.");
+                quotesList.add("You become what you believe, not what others believe about you.");
+                quotesList.add("You are the author of your worth — write boldly.");
+                quotesList.add("No one can stop you when you stop doubting yourself.");
+                quotesList.add("What you believe about yourself determines what you attempt.");
+                quotesList.add("Believing in yourself is the first secret to success.");
+                quotesList.add("Your mind is your most powerful weapon — feed it with belief.");
+                quotesList.add("Your potential is endless when you believe it's possible.");
+                quotesList.add("Confidence is built by keeping promises to yourself.");
+                quotesList.add("Believe in your voice, even if it trembles.");
+                quotesList.add("The world will start believing in you the day you do.");
+                quotesList.add("No mountain is too high when you trust your climb.");
+                quotesList.add("Trust the process — and trust that you’re strong enough for it.");
+                quotesList.add("Every great journey begins with self-belief.");
+                quotesList.add("If you can see it in your mind, you can hold it in your hand.");
+                quotesList.add("Your belief is the foundation that success is built on.");
+                quotesList.add("You are the key — unlock your own potential.");
+                quotesList.add("You are not too much, too late, or too lost — you are ready.");
+                quotesList.add("You were born to stand out — stop trying to fit in.");
+                quotesList.add("The more you believe, the less you need approval.");
+                quotesList.add("Doubt is the thief of progress — believe and reclaim your path.");
+                quotesList.add("Don’t wait for permission to believe in your own brilliance.");
+                quotesList.add("Your dreams are valid because you are worthy.");
+                quotesList.add("You have a light the world needs — don’t dim it with doubt.");
+                quotesList.add("Trust yourself. You’ve come this far for a reason.");
+                quotesList.add("Belief is a choice you make every single day.");
+                quotesList.add("Don’t let fear speak louder than faith in yourself.");
+                quotesList.add("Believing in yourself is a quiet revolution with loud results.");
+                quotesList.add("The only validation you need is your own belief.");
+                quotesList.add("Believe in the person you’re becoming.");
+                quotesList.add("Confidence is self-belief in action.");
+                quotesList.add("You already are enough. Now act like it.");
+                quotesList.add("Your belief in yourself can outshine any doubt from others.");
+                quotesList.add("The hardest part is believing — after that, anything is possible.");
+                quotesList.add("Once you believe you deserve it, the universe moves to deliver it.");
+                quotesList.add("Believe in your growth, not your limits.");
+                quotesList.add("You can rise above anything — if you first believe you can.");
+                quotesList.add("Faith in yourself fuels every dream into reality.");
+                quotesList.add("Success follows belief, not the other way around.");
+                quotesList.add("No one else can believe for you — that power is yours alone.");
+                quotesList.add("You are not your past — believe in the new story you’re writing.");
+                quotesList.add("When you believe in yourself, magic happens.");
                 quotesList.add("You are braver than you believe, stronger than you seem, and smarter than you think. - A.A. Milne");
                 quotesList.add("Don't wait for permission to be who you know you can be.");
                 quotesList.add("Act as if what you do makes a difference. It does. - William James");
@@ -637,7 +775,7 @@ public class ShowQuotes extends AppCompatActivity {
                 quotesList.add("The most beautiful thing you can wear is confidence.");
                 break;
 
-            case "Feel it!":
+            case "Heart Over Hype":
                 quotesList.add("The greatest glory in living lies not in never falling, but in rising every time we fall.");
                 quotesList.add("In the middle of every difficulty lies opportunity.");
                 quotesList.add("Your time is limited, don't waste it living someone else's life.");

@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -53,13 +54,13 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
 
         // Data for the RecyclerView
         ArrayList<String> peopleNames = new ArrayList<>();
-        peopleNames.add("Success in Action");
-        peopleNames.add("Proverbs");
-        peopleNames.add("Feel it!");
-        peopleNames.add("Woman Power");
-        peopleNames.add("Confucius");
-        peopleNames.add("Believe it!");
-        peopleNames.add("Through Storm");
+        peopleNames.add("Move, Then Win");
+        peopleNames.add("Timeless Truth Drops");
+        peopleNames.add("Heart Over Hype");
+        peopleNames.add("Unapologetically Her");
+        peopleNames.add("Ancient Brilliance");
+        peopleNames.add("Built by Belief");
+        peopleNames.add("Grace Under Pressure");
 
         ArrayList<String> peoplePictures = new ArrayList<>();
         peoplePictures.add("success");
@@ -78,6 +79,13 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         recyclerView.setAdapter(adapter);
 
         MobileAds.initialize(this, initializationStatus -> Log.d(TAG, "MobileAds initialization status: " + initializationStatus));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        TextView dailyQuoteTextView = findViewById(R.id.daily_quote); // Use your actual TextView ID
+        dailyQuoteTextView.setText(Notification.getRandomQuote());
     }
 
     @Override

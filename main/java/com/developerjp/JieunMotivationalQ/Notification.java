@@ -68,7 +68,58 @@ public class Notification extends BroadcastReceiver {
             "Everything you've ever wanted is on the other side of fear.",
             "The best time to plant a tree was 20 years ago. The second best time is now.",
             "Don't be afraid to fail. Be afraid not to try.",
-            "What you get by achieving your goals is not as important as what you become by achieving your goals."
+            "What you get by achieving your goals is not as important as what you become by achieving your goals.",
+            "Progress doesn’t shout — it whispers in every quiet decision to try again.",
+            "You are not running out of time; you are learning how to use it.",
+            "The strength you seek is often built in silence and revealed in storms.",
+            "Dreams grow roots when you take action, not when you wait for perfect conditions.",
+            "Your pace doesn’t matter as long as you don’t lose sight of your purpose.",
+            "Doubt kills more dreams than failure ever could.",
+            "The future is not something you wait for — it's something you build.",
+            "Let your passion speak louder than your fear.",
+            "Small steps in the right direction can become the biggest journey of your life.",
+            "Your story is not defined by the chapter you’re in right now.",
+            "You can be both a masterpiece and a work in progress.",
+            "Growth feels like breaking until it feels like becoming.",
+            "Resilience is not about never falling, but about learning how to rise softer each time.",
+            "Nothing changes unless you change something.",
+            "Keep planting, even when the harvest feels far away.",
+            "Your energy introduces you before your words ever do.",
+            "Comparison steals joy; gratitude restores it.",
+            "Be bold enough to be bad at something new.",
+            "You can’t find your voice if you’re too busy echoing others.",
+            "Failure is feedback dressed as a detour.",
+            "The only permission you need to begin is your own.",
+            "When it’s hard, that’s when it’s working.",
+            "Don’t wait for motivation; show up and let it catch up.",
+            "Your purpose won’t let you quit — it will only let you pause.",
+            "Even the darkest night teaches the stars how to shine.",
+            "Say yes to your next step, even if you don’t see the whole staircase.",
+            "You don’t need a map — just enough courage to take the first step.",
+            "The only time you truly fail is the time you stop trying.",
+            "Confidence is built, not born.",
+            "The fire in you is meant to light the way, not burn you out.",
+            "Peace doesn’t mean perfect — it means present.",
+            "Fall in love with becoming, not just arriving.",
+            "You are the author — stop handing the pen to fear.",
+            "Your setbacks are setups for a stronger comeback.",
+            "The mountain only looks tall until you start climbing.",
+            "Do it scared — courage often looks like trembling hands.",
+            "You were never meant to shrink to fit a smaller version of you.",
+            "Discipline is the bridge between intention and outcome.",
+            "Don’t rush the process — trust the becoming.",
+            "Your value is not measured by your productivity.",
+            "Storms show you what you’re made of — and what you no longer need.",
+            "Be gentle with yourself — growth isn’t always loud.",
+            "Every day you rise is a revolution against the impossible.",
+            "Let your setbacks be stepping stones, not stopping signs.",
+            "What you’re building takes time because it’s meant to last.",
+            "The world needs your voice, not your perfection.",
+            "Success is consistency, not speed.",
+            "You are not behind — you’re exactly where you grow from.",
+            "Even if it’s messy, unfinished, or unsure — begin anyway.",
+            "You owe it to yourself to become everything you’ve dreamed of.",
+            "The world needs your voice, not your perfection."
     };
 
     private static final String CHANNEL_ID = "Notification";
@@ -125,5 +176,10 @@ public class Notification extends BroadcastReceiver {
 
         // Show custom notification
         showCustomNotification(context, randomQuote);
+    }
+
+    public static String getRandomQuote() {
+        int idx = new Random().nextInt(quotes.length);
+        return quotes[idx];
     }
 }
