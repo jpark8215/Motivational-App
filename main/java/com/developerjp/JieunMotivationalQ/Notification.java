@@ -12,6 +12,7 @@ import android.os.Build;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+import android.util.Log;
 
 import java.util.Random;
 
@@ -23,7 +24,7 @@ public class Notification extends BroadcastReceiver {
             "Success is not the key to happiness. Happiness is the key to success.",
             "You are never too old to set another goal or to dream a new dream.",
             "Success is liking yourself, liking what you do, and liking how you do it.",
-            "The only way to achieve the impossible is to believe it is possible. ",
+            "The only way to achieve the impossible is to believe it is possible.",
             "Success is walking from failure to failure with no loss of enthusiasm.",
             "Don't count the days, make the days count.",
             "Your time is limited, so don't waste it living someone else's life.",
@@ -119,7 +120,16 @@ public class Notification extends BroadcastReceiver {
             "You are not behind — you’re exactly where you grow from.",
             "Even if it’s messy, unfinished, or unsure — begin anyway.",
             "You owe it to yourself to become everything you’ve dreamed of.",
-            "The world needs your voice, not your perfection."
+            "Start where you are. Use what you have. Do what you can.",
+            "One day or day one — you decide.",
+            "Little by little, a little becomes a lot.",
+            "Discipline is choosing what you want most over what you want now.",
+            "Make progress, not excuses.",
+            "Small habits, big results.",
+            "Do something today your future self will thank you for.",
+            "Action is the antidote to fear.",
+            "The secret of getting ahead is getting started.",
+            "You don't have to have it all figured out to take the next step."
     };
 
     private static final String CHANNEL_ID = "Notification";
@@ -143,7 +153,7 @@ public class Notification extends BroadcastReceiver {
                 notificationManager.notify(1, builder.build());
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e("Notification", "Failed to display notification", e);
         }
     }
 
@@ -167,6 +177,15 @@ public class Notification extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        // Validate the broadcast action to avoid processing spoofed intents
+        if (intent == null) return;
+        String action = intent.getAction();
+        if (!Intent.ACTION_BOOT_COMPLETED.equals(action)
+                && !Intent.ACTION_MY_PACKAGE_REPLACED.equals(action)) {
+            // Ignore unexpected or missing actions
+            return;
+        }
+
         // Create notification channel first
         createNotificationChannel(context);
 

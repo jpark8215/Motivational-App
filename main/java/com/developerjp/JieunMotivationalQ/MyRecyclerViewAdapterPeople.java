@@ -90,7 +90,9 @@ public class MyRecyclerViewAdapterPeople extends RecyclerView.Adapter<MyRecycler
 
         @Override
         public void onClick(View view) {
-            if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
+            int position = getBindingAdapterPosition();
+            if (position == RecyclerView.NO_POSITION) return;
+            if (mClickListener != null) mClickListener.onItemClick(view, position);
         }
     }
 }
